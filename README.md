@@ -1,12 +1,12 @@
-# invsist
-Sistema de gestión de inventario (Tutorial)
+# Inventario Planta Física
+Sistema de gestión de inventario 
 
 ## Instalación
 
 1. Clonar el repositorio: 
 
 ```
-git clone https://github.com/blasferna/invsist
+git clone https://github.com/vcdanielj/django-inventory-system
 ```
 
 2. Crear el entorno virtual
