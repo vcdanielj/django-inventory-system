@@ -1,7 +1,7 @@
 from django.urls import reverse_lazy
 from menu import Menu, MenuItem
 
-Menu.add_item("main", MenuItem("Comprador",
+Menu.add_item("main", MenuItem("Personal",
                                reverse_lazy("buyer_list")))
 
 Menu.add_item("main", MenuItem("Proveedor",

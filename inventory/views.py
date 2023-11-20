@@ -97,7 +97,7 @@ class ProductListView(LoginRequiredMixin, SearchViewMixin, SingleTableMixin, Lis
 class ProductCreateView(LoginRequiredMixin, CreateView):
     model = Product
     template_name = 'inventory/product_create.html'
-    fields = ['name', 'barcode', 'brand', 'category', 'cost', 'price']
+    fields = ['name', 'barcode', 'brand', 'category']
 
     def get_success_url(self):
         return reverse_lazy("product_list")
@@ -105,7 +105,7 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
 class ProductUpdateView(LoginRequiredMixin, UpdateView):
     model = Product
     template_name = 'inventory/product_update.html'
-    fields = ['name', 'barcode', 'brand', 'category', 'cost', 'price']
+    fields = ['name', 'barcode', 'brand', 'category']
 
     def get_success_url(self):
         return reverse_lazy("product_list")

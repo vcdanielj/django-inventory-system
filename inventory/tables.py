@@ -7,7 +7,6 @@ class BaseTable(tables.Table):
         super().__init__(*args, **kwargs)
         self.template_name = "django_tables2/bootstrap4.html"
 
-
 class SingleTable(BaseTable):
     def __init__(self, *args, **kwargs):
         kwargs['empty_text']  =  "Sin resultados." 

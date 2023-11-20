@@ -2,7 +2,7 @@ from django.urls import reverse_lazy
 from menu import Menu, MenuItem
 
 # Agregamos los menus al principal
-Menu.add_item("main", MenuItem("Inicio",
+Menu.add_item("main", MenuItem("Inventario",
                                reverse_lazy("main")))
 
 Menu.add_item("main", MenuItem("Marcas",
