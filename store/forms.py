@@ -11,12 +11,6 @@ from .models import Order, OrderDetail
 
 
 class OrderForm(forms.ModelForm):
-    total = forms.DecimalField(
-        widget=calculation.SumInput('subtotal',   attrs={'readonly':True}),
-    )
-    total_iva = forms.DecimalField(
-        widget=calculation.SumInput('iva',   attrs={'readonly':True}),
-    )
     class Meta:
         model = Order
         fields = ['type', 'date', 'supplier', 'buyer', 'observation']
@@ -26,8 +20,6 @@ class OrderForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_tag = False
-        self.fields['total'].label = False
-        self.fields['total_iva'].label = False
         self.helper.layout = Layout(
             Row(Column("type"), Column("date")),
             "supplier",
@@ -40,25 +32,13 @@ class OrderForm(forms.ModelForm):
                 )
             ),
             Row(
-                Column(HTML("<div class='w-100'></div>")), Column(HTML('<span class="w-100"> Total: </span>'), css_class="text-right"), Column("total")
-            ), 
-            Row(
-                Column(HTML("<div class='w-100'></div>")), Column(HTML('<span class="w-100"> Total IVA: </span>'), css_class="text-right"), Column("total_iva")
-            ),
-            Row(
                 Div(Submit("submit", "Guardar"), HTML("""<a class="btn btn-secondary" href="{% url 'order_list' %}"> Cancelar</a>""" ))
             )
            
         )
 
 class OrderDetForm(forms.ModelForm):
-    subtotal = forms.DecimalField(
-        widget=calculation.FormulaInput('quantity*price', attrs={'readonly':True})
-    )
-    iva = forms.DecimalField(
-        widget=calculation.FormulaInput('parseFloat(subtotal/11).toFixed(0)', attrs={'readonly':True})
-    )
     class Meta:
         model = OrderDetail
-        fields = ['product', 'price', 'quantity', 'subtotal']
+        fields = ['product']
 

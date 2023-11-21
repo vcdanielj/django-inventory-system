@@ -34,7 +34,7 @@ class CategoryTable(EditableTable):
 class ProductTable(EditableTable):
     class Meta:
         model = Product
-        fields = ("name", "barcode", "brand", "category",)
+        fields = ("name", "barcode", "brand", "category", "quantity")
 
 class BuyerTable(EditableTable):
     class Meta:

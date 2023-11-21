@@ -5,4 +5,4 @@ from inventory.tables import EditableTable
 class OrderTable(EditableTable):
     class Meta:
         model = Order
-        fields = ("type", "date", "observation", "total")
+        fields = ("type", "date", "observation")

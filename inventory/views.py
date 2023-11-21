@@ -86,7 +86,7 @@ class CategoryDeleteView(LoginRequiredMixin, DeleteView):
 class ProductListView(LoginRequiredMixin, SearchViewMixin, SingleTableMixin, ListView):
     model = Product
     table_class = ProductTable
-    search_fields = ['name', 'barcode', 'brand__name']
+    search_fields = ['name', 'barcode', 'brand__name', 'category__name']
     template_name = 'inventory/product_list.html'
 
     def get_context_data(self, **kwargs):

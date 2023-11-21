@@ -28,15 +28,11 @@ class Order(models.Model):
     date = models.DateField()
     supplier = models.ForeignKey(Supplier, on_delete=models.DO_NOTHING, null=True, blank=True)
     buyer = models.ForeignKey(Buyer, on_delete=models.DO_NOTHING, null=True, blank=True)
-    observation = models.CharField(max_length=300)
+    observation = models.CharField(max_length=500)
     user = models.IntegerField(null=True, blank=True)
 
-    @property
-    def total(self):
-        return sum(round(x.quantity * x.price)  for x in self.orderdetail_set.all())
 
 class OrderDetail(models.Model):
     order = models.ForeignKey(Order, on_delete=models.DO_NOTHING)
     product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
     quantity = models.DecimalField(max_digits=10, decimal_places=2)
-    price = models.DecimalField(max_digits=10, decimal_places=2)

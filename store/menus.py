@@ -7,6 +7,5 @@ Menu.add_item("main", MenuItem("Personal",
 Menu.add_item("main", MenuItem("Proveedor",
                                reverse_lazy("supplier_list")))
 
-
 Menu.add_item("main", MenuItem("Movimientos",
                                reverse_lazy("order_list")))

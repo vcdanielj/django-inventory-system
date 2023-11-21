@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('type', models.CharField(choices=[('I', 'In'), ('O', 'Out')], max_length=1)),
                 ('date', models.DateField()),
-                ('observation', models.CharField(max_length=300)),
+                ('observation', models.CharField(max_length=500)),
                 ('user', models.IntegerField(blank=True, null=True)),
                 ('buyer', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.DO_NOTHING, to='store.buyer')),
             ],
@@ -47,7 +47,6 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('quantity', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('price', models.DecimalField(decimal_places=2, max_digits=10)),
                 ('order', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='store.order')),
                 ('product', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='inventory.product')),
             ],
