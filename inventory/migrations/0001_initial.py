@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=200, verbose_name='Nombre')),
-                ('barcode', models.CharField(max_length=20, verbose_name='Código de Barra')),
+                ('barcode', models.CharField(max_length=20, verbose_name='Número de Inventario')),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('brand', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='inventory.brand', verbose_name='Marca')),
                 ('category', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='inventory.category', verbose_name='Categoria')),
