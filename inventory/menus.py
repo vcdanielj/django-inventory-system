@@ -14,6 +14,4 @@ Menu.add_item("main", MenuItem("Marcas",
 Menu.add_item("main", MenuItem("Categorias",
                                reverse_lazy("category_list")))
 
-Menu.add_item("main", MenuItem("Productos",
-                               reverse_lazy("product_list")))
 
