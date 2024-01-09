@@ -32,6 +32,7 @@ class CategoryTable(EditableTable):
         fields = ("name",)
 
 class ProductTable(EditableTable):
+    quantity = tables.Column(verbose_name="Cantidad")
     class Meta:
         model = Product
         fields = ("name", "barcode", "brand", "category", "quantity")

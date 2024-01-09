@@ -24,15 +24,14 @@ class Order(models.Model):
         (INPUT, 'In'),
         (OUTPUT, 'Out')
     ]
-    type = models.CharField(max_length=1, choices=TYPE_CHOICES)
-    date = models.DateField()
-    supplier = models.ForeignKey(Supplier, on_delete=models.DO_NOTHING, null=True, blank=True)
-    buyer = models.ForeignKey(Buyer, on_delete=models.DO_NOTHING, null=True, blank=True)
-    observation = models.CharField(max_length=500)
-    user = models.IntegerField(null=True, blank=True)
-
+    type = models.CharField(max_length=1, choices=TYPE_CHOICES, verbose_name="Tipo")
+    date = models.DateField(verbose_name="Fecha")
+    supplier = models.ForeignKey(Supplier, on_delete=models.DO_NOTHING, null=True, blank=True, verbose_name="Proveedor")
+    buyer = models.ForeignKey(Buyer, on_delete=models.DO_NOTHING, null=True, blank=True, verbose_name="Personal")
+    observation = models.CharField(max_length=500, verbose_name="Observación")
+    user = models.IntegerField(null=True, blank=True, verbose_name="Usuario")
 
 class OrderDetail(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.DO_NOTHING)
-    product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
-    quantity = models.DecimalField(max_digits=10, decimal_places=2)
+    order = models.ForeignKey(Order, on_delete=models.DO_NOTHING, verbose_name="Orden")
+    product = models.ForeignKey(Product, on_delete=models.DO_NOTHING, verbose_name="Producto")
+    quantity = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Cantidad")
